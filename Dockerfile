@@ -12,8 +12,5 @@ COPY pom.xml .
 # Build the WAR file (adjust command if necessary)
 RUN mvn clean install
 
-# Copy the WAR file to the container
-COPY target/cardapio-0.0.1-SNAPSHOT.war.original .
-
 # Start the API (adjust command if necessary)
 CMD ["java", "-jar", "cardapio-0.0.1-SNAPSHOT.war.original"]
