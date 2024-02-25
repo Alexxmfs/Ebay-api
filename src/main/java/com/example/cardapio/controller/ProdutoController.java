@@ -27,7 +27,17 @@ public class ProdutoController {
         repository.save(produtoData);
         return;
     }
-
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping("/{id}")
+    public ResponseEntity<ProdutoResponseDTO> getProdutoById(@PathVariable Long id) {
+        Optional<Produto> optionalProduto = repository.findById(id);
+        if (optionalProduto.isPresent()) {
+            ProdutoResponseDTO produtoResponseDTO = new ProdutoResponseDTO(optionalProduto.get());
+            return ResponseEntity.ok(produtoResponseDTO);
+        } else {
+            throw new EntityNotFoundException("Product not found with id: " + id);
+        }
+    }
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<ProdutoResponseDTO> getAll(){
