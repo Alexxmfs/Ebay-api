@@ -67,6 +67,7 @@ public class ProdutoController {
         }
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity deleteProduto(@PathVariable Long id){
