@@ -1,9 +1,9 @@
 package com.example.cardapio.controller;
 
-import com.example.cardapio.produto.Produto;
-import com.example.cardapio.produto.ProdutoRepository;
-import com.example.cardapio.produto.ProdutoRequestDTO;
-import com.example.cardapio.produto.ProdutoResponseDTO;
+import com.example.cardapio.domain.produto.Produto;
+import com.example.cardapio.domain.produto.ProdutoRepository;
+import com.example.cardapio.domain.produto.ProdutoRequestDTO;
+import com.example.cardapio.domain.produto.ProdutoResponseDTO;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
