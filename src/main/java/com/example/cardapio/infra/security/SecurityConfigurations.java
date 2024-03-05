@@ -19,6 +19,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 
+
+
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfigurations {
@@ -44,7 +47,6 @@ public class SecurityConfigurations {
     }
 
     CorsConfigurationSource myWebsiteConfigurationSource() {
-        System.out.println("aqui");
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST"));
