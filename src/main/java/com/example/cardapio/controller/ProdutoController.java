@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping("produto")
 public class ProdutoController {
@@ -20,14 +21,12 @@ public class ProdutoController {
     @Autowired
     private ProdutoRepository repository;
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveProduto(@RequestBody ProdutoRequestDTO data){
         Produto produtoData = new Produto(data);
         repository.save(produtoData);
         return;
     }
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/{id}")
     public ResponseEntity<ProdutoResponseDTO> getProdutoById(@PathVariable Long id) {
         Optional<Produto> optionalProduto = repository.findById(id);
@@ -38,7 +37,7 @@ public class ProdutoController {
             throw new EntityNotFoundException("Product not found with id: " + id);
         }
     }
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+
     @GetMapping
     public List<ProdutoResponseDTO> getAll(){
 
@@ -46,7 +45,6 @@ public class ProdutoController {
         return produtoList;
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateProduto(@PathVariable Long id, @RequestBody ProdutoRequestDTO data) {
         Optional<Produto> optionalProduto = repository.findById(id);
@@ -67,7 +65,6 @@ public class ProdutoController {
         }
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity deleteProduto(@PathVariable Long id){
